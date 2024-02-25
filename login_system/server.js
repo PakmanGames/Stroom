@@ -4,8 +4,23 @@ const bodyparser = require('body-parser');
 const session = require('express-session');
 const {v4: uuidv4} = require('uuid');
 const app = express();
+const mongoose = require('mongoose');
 
 const router = require('./router');
+
+const uri = "mongodb+srv://andypakschool:StroomPassword@cluster0.1tzk5vv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+async function connect() {
+    try {
+        // await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(uri);
+        console.log('Connected to the database');
+    } catch(error) {
+        console.log('Error: ', error);
+    }
+}
+
+connect();
 
 const port = process.env.PORT || 3000;
 
