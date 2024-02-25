@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const router = require('./router');
 
-const uri = 'stringConnection goes here';
+const uri = 'mongodb://andypakschool:StroomPassword@ac-so5wky2-shard-00-01.1tzk5vv.mongodb.net:27017,ac-so5wky2-shard-00-02.1tzk5vv.mongodb.net:27017,ac-so5wky2-shard-00-00.1tzk5vv.mongodb.net:27017/userLogin?ssl=true&replicaSet=atlas-g9x8qn-shard-0&authSource=admin&retryWrites=true';
 
 async function connect() {
     try {

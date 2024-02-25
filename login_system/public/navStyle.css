@@ -1,0 +1,56 @@
+#map {
+    height: 700px;
+    width: 100%;
+}
+.container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    background: #7cc7de;
+    margin:0;
+    padding:0;
+    min-width: 100%;
+}
+
+.slanted {
+    padding-bottom: 8px;
+    padding-left: 1px;
+    padding-right: 1px;
+    transform: rotate(-20deg);
+    position: relative;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.headline {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; 
+    font-family: 'Brush Script MT', cursive;
+}
+
+.navbar {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar li {
+    list-style: none;
+    padding:0 100px;
+    position: relative;
+}
+
+.navbar li a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 650;
+    color: #000000;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar li a:hover {
+    color: #fff;
+}
