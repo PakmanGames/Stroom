@@ -5,6 +5,11 @@
         <div class="title">
             <h2 class="font-weight-bold">Login System</h2>
             <span>Log in for the existing user</span>
+            <% if (locals.error) { %>
+                <div class="alert alert-succes text-center" role="alert">
+                    <%= logout %>
+                </div>
+            <% } %>
         </div>
         <form action="/route/login" method="POST" class="pt-3">
             <div class="form-group">
