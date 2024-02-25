@@ -11,7 +11,7 @@
         <!-- Maps Navigation Link -->
         <li><a href="#" onclick="displayMap()">Maps</a></li>
         <li><a href="search.html">Search</a></li>
-        <li><a href="/createPost.html">Create Post</a></li>
+        <li><a href="#" onclick="displayPostForm()">Create Post</a></li>
         <li><a href="/route/logout">Log Out</a></li>
     </div>
 </div>
@@ -24,22 +24,22 @@
     <h2> Create A Study Sesssion</h2>
     <form id="post-form" class="post-form">
       <div class="form-group">
-        <input type="text" id="location" placeholder="Location" class="form-control">
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control">
       </div>
       <div class="form-group">
-        <input type="text" id="room" placeholder="Room" class="form-control">
+        <input type="text" id="room" name="room" placeholder="Room" class="form-control">
       </div>
       <div class="form-group">
-        <input type="text" id="time" placeholder="Time" class="form-control">
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control">
       </div>
       <div class="form-group">
-        <input type="text" id="study-topics" placeholder="Study Topics" class="form-control">
+        <input type="text" id="study-topics" name="studyTopics" placeholder="Study Topics" class="form-control">
       </div>
       <div class="form-group">
-        <textarea id="additional-notes" placeholder="Additional Notes" class="form-control"></textarea>
+        <textarea id="additional-notes" name="additionalNotes" placeholder="Additional Notes" class="form-control"></textarea>
       </div>
       <div class="form-group">
-        <input type="text" id="tags" placeholder="Tags" class="form-control">
+        <input type="text" id="tags" name="tags" placeholder="Tags" class="form-control">
       </div>
       <button type="submit" class="btn">Post</button>
     </form>
@@ -109,7 +109,7 @@
 <!-- Google Maps API -->
 <div id="map" style="display: none;"></div>
 <script defer
-src="https://maps.googleapis.com/maps/api/js?key=APIGOHERE&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=googleapihere&callback=initMap">
 </script>
 
 <!-- Main JavaScript File for Map-->
@@ -202,8 +202,15 @@ src="https://maps.googleapis.com/maps/api/js?key=APIGOHERE&callback=initMap">
 <!-- Function to display the map -->
 <script>
     function displayMap() {
-        document.getElementById('map').style.display = 'block';
-    }
+    document.getElementById('map').style.display = 'block';
+    document.getElementsByClassName('post-form-container')[0].style.display = 'none';
+}
+
+function displayPostForm() {
+    document.getElementsByClassName('post-form-container')[0].style.display = 'block';
+    document.getElementById('map').style.display = 'none';
+}
 </script>
+<!-- <script src="/static/dashboard.js"></script> -->
 
 <%- include('dashboardFooter') -%>

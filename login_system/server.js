@@ -8,7 +8,8 @@ const mongoose = require('mongoose');
 
 const router = require('./router');
 
-const uri = 'APIStringHere';
+
+const uri = 'apihere';
 
 async function connect() {
     try {
@@ -27,6 +28,8 @@ const port = process.env.PORT || 3000;
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
+app.use(express.json());
+
 app.set('view engine', 'ejs');
 
 app.use(session({
@@ -34,6 +37,15 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+
+const noteSchema = {
+    location:String,
+    room:String,
+    time:String,
+    studyTopics:String,
+    additionalNotes: String,
+    tags:String
+}
 
 app.use('/', router);
 
@@ -50,3 +62,28 @@ app.get(`/`, (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);
 });
+
+const note = mongoose.model("posts", noteSchema);
+app.get('/', function(req, res) {
+    res.render('dashboard');
+})
+app.post('/', async function(req,res){
+    let newNote = new note({
+        location: req.getElementById('location').value,
+        room: req.getElementById('room').value,
+        time: req.getElementById('time').value,
+        studyTopics: req.getElementById('study-topics').value,
+        additionalNotes: req.getElementById('additional-notes').value,
+        tags: req.getElementById('tags').value
+        
+    })
+    try {
+        const savedNote = await newNote.save();
+        res.json(savedNote);
+        console.log('yeah');
+    } catch (err) {
+        res.status(500).send(err);
+        console.log(`error occured: ${err}`);
+    }
+    res.redirect('/')
+})
