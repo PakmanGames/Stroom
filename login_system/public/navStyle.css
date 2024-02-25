@@ -54,3 +54,75 @@
 .navbar li a:hover {
     color: #fff;
 }
+
+
+
+
+
+
+.post-form-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+  }
+  
+  .post-form {
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .posts-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .post {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .post strong {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .post {
+    position: relative; /* Make the post container a positioning context */
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .member-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 4px 8px;
+  }

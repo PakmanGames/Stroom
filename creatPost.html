@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Post Form</title>
+  <link rel="stylesheet" href="testing.css"> <!-- Link to CSS file for styling -->
+</head>
+<body>
+  <div class="post-form-container">
+    <h2></h2>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <!-- Maps Navigation Link -->
+      <li><a href="#" onclick="displayMap()">Maps</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="testing.html">Create Post</a></li>
+      <li><a href="/route/logout">Log Out</a></li>
+  </div>
+
+    <form id="post-form" class="post-form">
+      <div class="form-group">
+        <input type="text" id="location" placeholder="Location" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" id="room" placeholder="Room" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" id="time" placeholder="Time" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" id="study-topics" placeholder="Study Topics" class="form-control">
+      </div>
+      <div class="form-group">
+        <textarea id="additional-notes" placeholder="Additional Notes" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="text" id="tags" placeholder="Tags" class="form-control">
+      </div>
+      <button type="submit" class="btn">Post</button>
+    </form>
+    <div id="posts-container" class="posts-container"></div>
+  </div>
+
+  <script>
+    // Get form elements
+    const postForm = document.getElementById('post-form');
+    const locationInput = document.getElementById('location');
+    const roomInput = document.getElementById('room');
+    const timeInput = document.getElementById('time');
+    const studyTopicsInput = document.getElementById('study-topics');
+    const additionalNotesInput = document.getElementById('additional-notes');
+    const tagsInput = document.getElementById('tags');
+    const postsContainer = document.getElementById('posts-container');
+
+    // Event listener for form submission
+    postForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get input values
+      const location = locationInput.value;
+      const room = roomInput.value;
+      const time = timeInput.value;
+      const studyTopics = studyTopicsInput.value;
+      const additionalNotes = additionalNotesInput.value;
+      const tags = tagsInput.value;
+
+      // Create new post object
+      const newPost = {
+        location: location,
+        room: room,
+        time: time,
+        studyTopics: studyTopics,
+        additionalNotes: additionalNotes,
+        tags: tags
+      };
+
+      // Display new post
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      postElement.innerHTML = `
+        <strong>${newPost.location}</strong><br />
+        <span>Room: ${newPost.room}</span><br />
+        <span>Time: ${newPost.time}</span><br />
+        <span>Study Topics: ${newPost.studyTopics}</span><br />
+        <span>Additional Notes: ${newPost.additionalNotes}</span><br />
+        <span>Tags: ${newPost.tags}</span>
+      `;
+      postsContainer.appendChild(postElement);
+
+      // Clear form inputs
+      locationInput.value = '';
+      roomInput.value = '';
+      timeInput.value = '';
+      studyTopicsInput.value = '';
+      additionalNotesInput.value = '';
+      tagsInput.value = '';
+    });
+  </script>
+</body>
+</html>
